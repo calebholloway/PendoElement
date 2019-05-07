@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PendoElement - Funnels</title>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="https://use.typekit.net/awf7pyi.css">
+  <link rel="stylesheet" href="css/pendoelement.css">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/umd/locale/en.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- breadcrumb -->
+    <el-breadcrumb separator-class="el-icon-arrow-right">
+      <el-breadcrumb-item :to="{ path: '/' }">Page 1</el-breadcrumb-item>
+      <el-breadcrumb-item>Page 2</el-breadcrumb-item>
+    </el-breadcrumb>
+    <!-- row -->
+    <el-row :gutter="16">
+      <!-- col header -->
+      <el-col :span="16">
+        <h1 class="page-title">Funnels</h1>
+      </el-col>
+      <!-- col coa -->
+      <el-col :span="8">
+        <el-button type="primary" style="float: right;">Create Funnel</el-button>
+      </el-col>
+    </el-row>
+        <!-- row -->
+        <el-row :gutter="16">
+          <!-- col applications -->
+          <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+            <el-form ref="form" :model="form">
+              <el-form-item label="Application">
+                <el-select v-model="value4" placeholder="Choose Application">
+                  <el-option label="All Applications" value="AllApplications"></el-option>
+                  <el-option label="Web Applications" value="WebApplications"></el-option>
+                  <el-option label="Mobile Applications" value="MobileApplications"></el-option>
+                  <el-divider></el-divider>
+                  <el-option label="Application 1" value="Application1"></el-option>
+                  <el-option label="Application 2" value="Application2"></el-option>
+                  <el-option label="Application 3" value="Application3"></el-option>
+                  <el-option label="Application 4" value="Application4"></el-option>
+                  <el-option label="Application 5" value="Application5"></el-option>
+                  <el-option label="Application 6" value="Application6"></el-option>
+                </el-select>
+              </el-form-item>
+            </el-form>
+          </el-col>
+        </el-row>
+        <!-- row -->
+        <el-row :gutter="16">
+          <el-col :span="24">
+            <el-card class="box-card">
+              <el-table :data="tableData" style="width: 100%" height="80vh">
+                <el-table-column fixed sortable label="Funnel">
+                  <div slot-scope="{row}">
+                    <button type="button" class="el-button el-button--text">{{row.Funnel}}</button>
+                  </div>
+                </el-table-column>
+                <el-table-column sortable prop="DateRange" label="Date Range"></el-table-column>
+                <el-table-column sortable prop="Steps" label="Steps"></el-table-column>
+                <el-table-column sortable prop="Visibility" label="Visibility"></el-table-column>
+                <el-table-column sortable prop="Application" label="Application"></el-table-column>
+              </el-table>
+            </el-card>
+          </el-col>
+        </el-row>
+  </body>
+  <script>
+  ELEMENT.locale(ELEMENT.lang.en)
+  var Main = {
+    data() {
+      return {
+        //table
+        tableData: [{
+          Funnel: 'Funnel Name',
+          DateRange: 'Jun 10, 2019 - Oct 12, 2020',
+          Steps: '4',
+          Visibility: 'Everyone',
+          Application: 'Application Name'
+        }, {
+          Funnel: 'Some Funnel Name',
+          DateRange: 'Jan 11, 2019 - Oct 12, 2020',
+          Steps: '3',
+          Visibility: 'Everyone',
+          Application: 'Application Name'
+        }, {
+          Funnel: 'Funnel Name',
+          DateRange: 'Mar 19, 2019 - Oct 12, 2020',
+          Steps: '6',
+          Visibility: 'Everyone',
+          Application: 'Application Name'
+        }, {
+          Funnel: 'Some Funnel Name',
+          DateRange: 'Apr 19, 2019 - Oct 12, 2020',
+          Steps: '2',
+          Visibility: 'Everyone',
+          Application: 'Some Application Name'
+        }, {
+          Funnel: 'Funnel Name',
+          DateRange: 'May 12, 2019 - Oct 12, 2020',
+          Steps: '2',
+          Visibility: 'Everyone',
+          Application: 'Application Name'
+        }, {
+          Funnel: 'Funnel Name',
+          DateRange: 'Jan 31, 2019 - Oct 12, 2020',
+          Steps: '4',
+          Visibility: 'Everyone',
+          Application: 'Some Application Name'
+        }, {
+          Funnel: 'Funnel Name',
+          DateRange: 'Aug 19, 2019 - Oct 12, 2020',
+          Steps: '7',
+          Visibility: 'Everyone',
+          Application: 'Application Name'
+        }, {
+          Funnel: 'Some Funnel Name',
+          DateRange: 'Apr 19, 2019 - Oct 12, 2020',
+          Steps: '3',
+          Visibility: 'Everyone',
+          Application: 'Application Name'
+        }, {
+          Funnel: 'Some Funnel Name',
+          DateRange: 'Feb 22, 2019 - Oct 12, 2020',
+          Steps: '4',
+          Visibility: 'Everyone',
+          Application: 'Application Name'
+        }, {
+          Funnel: 'Funnel Name',
+          DateRange: 'Apr 12, 2019 - Oct 12, 2020',
+          Steps: '4',
+          Visibility: 'Everyone',
+          Application: 'Application Name'
+        }, {
+          Funnel: 'Funnel Name',
+          DateRange: 'Apr 16, 2019 - Oct 12, 2020',
+          Steps: '4',
+          Visibility: 'Everyone',
+          Application: 'Application Name'
+        }, {
+          Funnel: 'Funnel Name',
+          DateRange: 'Sep 19, 2019 - Oct 12, 2020',
+          Steps: '2',
+          Visibility: 'Everyone',
+          Application: 'Some Application Name'
+        }, {
+          Funnel: 'Funnel',
+          DateRange: 'May 29, 2019 - Oct 12, 2020',
+          Steps: '2',
+          Visibility: 'Everyone',
+          Application: 'Application Name'
+        }, {
+          Funnel: 'Funnel Name',
+          DateRange: 'Oct 19, 2019 - Oct 12, 2020',
+          Steps: '6',
+          Visibility: 'Everyone',
+          Application: 'Some Application Name'
+        }, {
+          Funnel: 'Some Funnel Name',
+          DateRange: 'Nov 19, 2019 - Oct 12, 2020',
+          Steps: '5',
+          Visibility: 'Everyone',
+          Application: 'Some Application Name'
+        }, {
+          Funnel: 'Funnel Name',
+          DateRange: 'Dec 19, 2019 - Oct 12, 2020',
+          Steps: '5',
+          Visibility: 'Everyone',
+          Application: 'Application Name'
+        }, {
+          Funnel: 'Funnel Name',
+          DateRange: 'Apr 19, 2019 - Oct 12, 2020',
+          Steps: '3',
+          Visibility: 'Everyone',
+          Application: 'Application Name'
+        }, {
+          Funnel: 'Funnel Name',
+          DateRange: 'Sep 17, 2019 - Oct 12, 2020',
+          Steps: '2',
+          Visibility: 'Everyone',
+          Application: 'Application Name'
+        }, {
+          Funnel: 'Funnel Name',
+          DateRange: 'Nov 11, 2019 - Oct 12, 2020',
+          Steps: '6',
+          Visibility: 'Everyone',
+          Application: 'Application Name'
+        }, {
+          Funnel: 'Funnel Name',
+          DateRange: 'Dec 12, 2019 - Oct 12, 2020',
+          Steps: '4',
+          Visibility: 'Everyone',
+          Application: 'Application'
+        }, {
+          Funnel: 'Funnel Name',
+          DateRange: 'Apr 19, 2019 - Oct 12, 2020',
+          Steps: '8',
+          Visibility: 'Everyone',
+          Application: 'Some Application'
+        }, {
+          Funnel: 'Funnel Name',
+          DateRange: 'Dec 25, 2019 - Oct 12, 2020',
+          Steps: '6',
+          Visibility: 'Everyone',
+          Application: 'Application'
+        }]
+      }
+    }
+  };
+  var Ctor = Vue.extend(Main)
+  new Ctor().$mount('#app');
+</script>
+</html>

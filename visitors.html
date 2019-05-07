@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PendoElement - Visitors</title>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="https://use.typekit.net/awf7pyi.css">
+  <link rel="stylesheet" href="css/pendoelement.css">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/umd/locale/en.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- breadcrumb -->
+    <el-breadcrumb separator-class="el-icon-arrow-right">
+      <el-breadcrumb-item :to="{ path: 'index.html' }">Page 1</el-breadcrumb-item>
+      <el-breadcrumb-item>Page 2</el-breadcrumb-item>
+    </el-breadcrumb>
+    <!-- row -->
+    <el-row :gutter="16">
+      <!-- col header -->
+      <el-col :span="16">
+        <h1 class="page-title">Visitors</h1>
+      </el-col>
+      <!-- col search -->
+      <el-col :span="8">
+        <el-input placeholder="Search Visitors..." prefix-icon="el-icon-search" v-model="input2">
+      </el-input>
+    </el-col>
+  </el-row>
+  <!-- tabs -->
+  <el-tabs v-model="activeName" @tab-click="handleClick">
+    <el-tab-pane label="Overview" name="first">
+      <!-- row -->
+      <el-row :gutter="16">
+        <!-- col segment -->
+        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+          <el-form ref="form" :model="form">
+            <el-form-item label="Segment">
+              <el-select v-model="value3" placeholder="Choose Segment">
+                <el-option label="Segment 1" value="Segment1"></el-option>
+                <el-option label="Segment 2" value="Segment2"></el-option>
+                <el-option label="Segment 3" value="Segment3"></el-option>
+                <el-option label="Segment 4" value="Segment4"></el-option>
+                <el-option label="Segment 5" value="Segment5"></el-option>
+                <el-option label="Segment 6" value="Segment6"></el-option>
+                <el-option label="Segment 7" value="Segment7"></el-option>
+                <el-option label="Segment 8" value="Segment8"></el-option>
+                <el-option label="Segment 9" value="Segment9"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-form>
+        </el-col>
+        <!-- col date -->
+        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+          <el-form ref="form" v-model="form">
+            <el-form-item label="Date Range">
+              <el-date-picker v-model="value2" type="daterange" unlink-panels range-separator="To" start-placeholder="Start date" end-placeholder="End date" :picker-options="pickerOptions"></el-date-picker>
+            </el-form-item>
+          </el-form>
+        </el-col>
+        <!-- col applications -->
+        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+          <el-form ref="form" :model="form">
+            <el-form-item label="Application">
+              <el-select v-model="value4" placeholder="Choose Application">
+                <el-option label="All Applications" value="AllApplications"></el-option>
+                <el-option label="Web Applications" value="WebApplications"></el-option>
+                <el-option label="Mobile Applications" value="MobileApplications"></el-option>
+                <el-divider></el-divider>
+                <el-option label="Application 1" value="Application1"></el-option>
+                <el-option label="Application 2" value="Application2"></el-option>
+                <el-option label="Application 3" value="Application3"></el-option>
+                <el-option label="Application 4" value="Application4"></el-option>
+                <el-option label="Application 5" value="Application5"></el-option>
+                <el-option label="Application 6" value="Application6"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-form>
+        </el-col>
+      </el-row>
+      <!-- row -->
+      <el-row :gutter="16">
+        <!-- col 1 -->
+        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+          <el-card class="box-card">
+            <div slot="header">
+              <span style="font-size: 1.3em;">Number of Visitors</span>
+            </div>
+            <div class="pendo-metric__label">Segment 4</div>
+            <div class="pendo-metric__label">Last Month</div>
+            <div class="pendo-metric__value">128</div>
+          </el-card>
+        </el-col>
+        <!-- col 2 -->
+        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+          <el-card class="box-card">
+            <div slot="header">
+              <span style="font-size: 1.3em;">Average Daily Time on Applications</span>
+            </div>
+            <div class="pendo-metric__label">Segment 4</div>
+            <div class="pendo-metric__label">Last Month</div>
+            <div class="pendo-metric__value">34m 57s</div>
+          </el-card>
+        </el-col>
+        <!-- col 3 -->
+        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+          <el-card class="box-card">
+            <div slot="header">
+              <span style="font-size: 1.3em;">Frequency</span>
+            </div>
+            <div id="container1" style="height: 78px; margin: 0 auto"></div>
+          </el-card>
+        </el-col>
+      </el-row>
+      <div class="clearfix"></div>
+      <!-- row -->
+      <el-row :gutter="16">
+        <el-col :span="24">
+          <el-card class="box-card">
+            <div slot="header">
+              <el-dropdown trigger="click" placement="bottom-start" style="font-size: 1.3em; padding: 3px 10px 3px 0;">
+                <span class="el-dropdown-link">
+                  Daily<i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item>Daily</el-dropdown-item>
+                  <el-dropdown-item>Weekly</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
+              <el-dropdown trigger="click" placement="bottom-start" style="font-size: 1.3em; padding: 3px 0;">
+                <span class="el-dropdown-link">
+                  Visitors<i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item>Events</el-dropdown-item>
+                  <el-dropdown-item>Time on Applications</el-dropdown-item>
+                  <el-dropdown-item>Visitors</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
+            </div>
+            <div id="container2" style="width: 100%; height: 80vh; margin: 0 auto;"></div>
+          </el-card>
+        </el-col>
+      </el-row>
+      <div class="clearfix"></div>
+      <!-- row -->
+      <el-row :gutter="16">
+        <el-col :span="24">
+          <el-card class="box-card">
+            <div slot="header">
+              <span style="font-size: 1.3em;">Visitor List</span>
+              <el-dropdown trigger="click" style="float: right; padding: 3px 0;">
+                <span class="el-dropdown-link">
+                  Actions<i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item icon="el-icon-edit">Edit Columns</el-dropdown-item>
+                  <el-dropdown-item icon="el-icon-pear">Save as Visitor Report</el-dropdown-item>
+                  <el-dropdown-item icon="el-icon-download">Download CSV</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
+            </div>
+            <el-table :data="tableData" style="width: 100%" height="80vh">
+              <el-table-column fixed sortable label="Visitor">
+                <div slot-scope="{row}">
+                  <button type="button" class="el-button el-button--text">{{row.Visitor}}</button>
+                </div>
+              </el-table-column>
+              <el-table-column sortable prop="LastVisit" label="Last Visit"></el-table-column>
+              <el-table-column sortable prop="DaysActive" label="Days Active"></el-table-column>
+              <el-table-column sortable prop="Events" label="Events"></el-table-column>
+            </el-table>
+          </el-card>
+        </el-col>
+      </el-row>
+    </el-tab-pane>
+    <el-tab-pane label="Reports" name="second">Reports</el-tab-pane>
+  </el-tabs>
+</body>
+<script>
+ELEMENT.locale(ELEMENT.lang.en)
+var Main = {
+  data() {
+    return {
+      //datepicker
+      pickerOptions: {
+        shortcuts: [{
+          text: 'Today',
+          onClick(picker) {
+            const end = new Date();
+            const start = new Date();
+            start.setTime(start.getTime());
+            picker.$emit('pick', [start, end]);
+          }
+        }, {
+          text: 'Last Week',
+          onClick(picker) {
+            const end = new Date();
+            const start = new Date();
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+            picker.$emit('pick', [start, end]);
+          }
+        }, {
+          text: 'Last Month',
+          onClick(picker) {
+            const end = new Date();
+            const start = new Date();
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+            picker.$emit('pick', [start, end]);
+          }
+        }]
+      },
+      value1: '',
+      value2: '',
+      //dropdowns
+      value3: [],
+      value4: [],
+      //tab
+      activeName: 'first',
+      //table
+      tableData: [{
+        Visitor: 'adamlohner@pendo.io',
+        LastVisit: 'Jun 10, 2019 11:02 AM EDT',
+        DaysActive: '4',
+        Events: '34'
+      }, {
+        Visitor: 'adrienneg@pendo.io',
+        LastVisit: 'Jan 11, 2019 11:02 AM EDT',
+        DaysActive: '12',
+        Events: '62'
+      }, {
+        Visitor: 'ajax@pendo.io',
+        LastVisit: 'Mar 19, 2019 11:02 AM EDT',
+        DaysActive: '24',
+        Events: '84'
+      }, {
+        Visitor: 'billyfrench@pendo.io',
+        LastVisit: 'Apr 19, 2019 11:02 AM EDT',
+        DaysActive: '31',
+        Events: '488'
+      }, {
+        Visitor: 'brendan@pendo.io',
+        LastVisit: 'May 12, 2019 11:02 AM EDT',
+        DaysActive: '4',
+        Events: '235'
+      }, {
+        Visitor: 'caleb@pendo.io',
+        LastVisit: 'Jan 31, 2019 11:02 AM EDT',
+        DaysActive: '8',
+        Events: '46'
+      }, {
+        Visitor: 'caroline.ford@pendo.io',
+        LastVisit: 'Aug 19, 2019 11:02 AM EDT',
+        DaysActive: '5',
+        Events: '352'
+      }, {
+        Visitor: 'edchan@pendo.io',
+        LastVisit: 'Apr 19, 2019 11:02 AM EDT',
+        DaysActive: '24',
+        Events: '480'
+      }, {
+        Visitor: 'erica@pendo.io',
+        LastVisit: 'Feb 22, 2019 11:02 AM EDT',
+        DaysActive: '7',
+        Events: '454'
+      }, {
+        Visitor: 'gunther@pendo.io',
+        LastVisit: 'Apr 12, 2019 11:02 AM EDT',
+        DaysActive: '24',
+        Events: '121'
+      }, {
+        Visitor: 'jshore@pendo.io',
+        LastVisit: 'Apr 16, 2019 11:02 AM EDT',
+        DaysActive: '27',
+        Events: '51'
+      }, {
+        Visitor: 'julie@pendo.io',
+        LastVisit: 'Sep 19, 2019 11:02 AM EDT',
+        DaysActive: '9',
+        Events: '67'
+      }, {
+        Visitor: 'keren@pendo.io',
+        LastVisit: 'May 29, 2019 11:02 AM EDT',
+        DaysActive: '12',
+        Events: '52'
+      }, {
+        Visitor: 'kristine@pendo.io',
+        LastVisit: 'Oct 19, 2019 11:02 AM EDT',
+        DaysActive: '16',
+        Events: '432'
+      }, {
+        Visitor: 'matt@pendo.io',
+        LastVisit: 'Nov 19, 2019 11:02 AM EDT',
+        DaysActive: '26',
+        Events: '33'
+      }, {
+        Visitor: 'morgan@pendo.io',
+        LastVisit: 'Dec 19, 2019 11:02 AM EDT',
+        DaysActive: '63',
+        Events: '574'
+      }, {
+        Visitor: 'mstevens@pendo.io',
+        LastVisit: 'Apr 19, 2019 11:02 AM EDT',
+        DaysActive: '5',
+        Events: '43'
+      }, {
+        Visitor: 'nchalco@pendo.io',
+        LastVisit: 'Sep 17, 2019 11:02 AM EDT',
+        DaysActive: '35',
+        Events: '13'
+      }, {
+        Visitor: 'reggielamb@pendo.io',
+        LastVisit: 'Nov 11, 2019 11:02 AM EDT',
+        DaysActive: '26',
+        Events: '33'
+      }, {
+        Visitor: 'sgp@pendo.io',
+        LastVisit: 'Dec 12, 2019 11:02 AM EDT',
+        DaysActive: '63',
+        Events: '574'
+      }, {
+        Visitor: 'shannon@pendo.io',
+        LastVisit: 'Apr 19, 2019 11:02 AM EDT',
+        DaysActive: '35',
+        Events: '13'
+      }, {
+        Visitor: 'suja@pendo.io',
+        LastVisit: 'Dec 25, 2019 11:02 AM EDT',
+        DaysActive: '5',
+        Events: '67'
+      }]
+    }
+  }
+};
+var Ctor = Vue.extend(Main)
+new Ctor().$mount('#app');
+//Highcharts global
+Highcharts.setOptions({
+  chart: {
+    style: {
+      fontFamily: 'proxima-nova, arial, sans-serif'
+    }
+  }
+});
+//Highcharts frequency
+Highcharts.chart('container1', {
+  chart: {
+    type: 'bar',
+    margin: [0, 0, 40, 0],
+    animation: false
+  },
+  colors: ['#ff7107', '#f2c80f', '#00c583'],
+  title: {
+    text: ''
+  },
+  xAxis: {
+    categories: ['']
+  },
+  yAxis: {
+    visible: false
+  },
+  legend: {
+    align: 'left',
+    floating: 'true',
+    reversed: true
+  },
+  plotOptions: {
+    series: {
+      stacking: 'percent'
+    }
+  },
+  exporting: {
+    enabled: false
+  },
+  series: [{
+    name: 'Monthly',
+    data: [14]
+  }, {
+    name: 'Weekly',
+    data: [22]
+  }, {
+    name: 'Daily',
+    data: [64]
+  }]
+});
+//Highcharts lines
+Highcharts.chart('container2', {
+  title: {
+    text: ''
+  },
+  yAxis: {
+    title: {
+      text: ''
+    }
+  },
+  legend: {
+    align: 'center'
+  },
+  exporting: {
+    enabled: false
+  },
+  xAxis: {
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug']
+  },
+  series: [{
+    type: 'spline',
+    name: 'Application 1',
+    data: [22, 25, 67, 12, 14, 53, 46, 63]
+  }, {
+    type: 'spline',
+    name: 'Application 2',
+    data: [30, 37, 44, 32, 22, 61, 25, 93]
+  }, {
+    type: 'spline',
+    name: 'Application 3',
+    data: [24, 44, 23, 40, 74, 35, 11, 69]
+  }]
+});
+</script>
+</html>

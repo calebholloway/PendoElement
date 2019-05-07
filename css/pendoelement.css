@@ -1,0 +1,46 @@
+body {
+  font-family: proxima-nova, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.3em;
+  margin: 30px;
+}
+.el-row {
+  margin-bottom: 8px;
+}
+.el-select,
+.el-date-editor--daterange.el-input,
+.el-date-editor--daterange.el-input__inner {
+  width: 100%;
+}
+.el-dropdown-link {
+  cursor: pointer;
+  color: #409EFF;
+}
+.el-divider--horizontal {
+  margin: 8px 0;
+}
+.clearfix {
+  clear: both;
+  height: 24px;
+}
+.pendo-metric__value {
+  font-size: 32px;
+  font-weight: 600;
+  height: 32px;
+  margin: 20px 0 0 0;
+}
+.pendo-metric__label {
+  background: #fff;
+  border: 1px solid #dadce5;
+  border-radius: 4px;
+  color: #2a2c35;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: .5px;
+  padding: 0 8px;
+  display: inline-flex;
+}
+.highcharts-credits {
+  display: none;
+}
