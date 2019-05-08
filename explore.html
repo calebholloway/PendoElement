@@ -22,6 +22,27 @@
   .el-button {
     font-family: proxima-nova, arial, sans-serif;
   }
+
+  .el-button--primary {
+    background-color: #229ca8;
+    border: none;
+  }
+
+  .el-button--primary:hover {
+    background-color: #1D858F;
+  }
+
+  .el-button--default {
+    color: #2a2c35;
+    background-color: #eaecf1;
+    border: none;
+  }
+
+  .el-button--default:hover {
+    color: #2a2c35;
+    background-color: #dadce5;
+  }
+
   .el-card {
     margin-bottom: 24px;
   }
@@ -45,6 +66,7 @@
     font-weight: 600;
     line-height: 22px;
   }
+
   .el-select-group__wrap:not(:last-of-type)::after {
     content: '';
     position: absolute;
@@ -55,6 +77,13 @@
     height: 1px;
     background: #E4E7ED;
   }
+
+  .el-select--small {
+    appearance: none;
+    color: #229ca8;
+
+  }
+
   .highcharts-credits {
     display: none;
   }
@@ -96,7 +125,7 @@
       <el-row :gutter="16">
         <el-col :xs="12" :sm="4" :md="4" :lg="4" :xl="4" style="padding-right: 20px; border-right: 1px dotted #3388cc;">
           <!-- dd1 -->
-          <el-select v-model="value6" placeholder="Select">
+          <el-select type="small" v-model="value6" placeholder="Select">
             <el-option label="Total" value="Total"></el-option>
             <el-option label="Average" value="Average"></el-option>
             <el-option label="Median" value="Median"></el-option>
