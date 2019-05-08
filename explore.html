@@ -32,6 +32,9 @@
   .el-dropdown-link {
     cursor: pointer;
   }
+  .el-form-item {
+    margin-bottom: 4px;
+  }
   .el-tag {
     background: #fff;
     border: 1px solid #DADCE5;
@@ -40,6 +43,7 @@
   .el-form-item__label {
     font-family: proxima-nova, arial, sans-serif;
     font-weight: 600;
+    line-height: 22px;
   }
   .el-select-group__wrap:not(:last-of-type)::after {
     content: '';
@@ -90,7 +94,7 @@
       </div>
       <!-- row -->
       <el-row :gutter="16">
-        <el-col :span="4">
+        <el-col :xs="12" :sm="4" :md="4" :lg="4" :xl="4" style="padding-right: 20px; border-right: 1px dotted #3388cc;">
           <!-- dd1 -->
           <el-select v-model="value6" placeholder="Select">
             <el-option label="Total" value="Total"></el-option>
@@ -110,7 +114,7 @@
             </el-select>
           </div>
         </el-col>
-        <el-col :span="20">
+        <el-col :xs="12" :sm="20" :md="20" :lg="20" :xl="20" style="padding-left: 20px;">
           <!-- dd3 -->
           Features from
           <el-select v-model="value5" placeholder="Select">
@@ -176,7 +180,21 @@
             <el-button type="text" icon="el-icon-close" v-on:click="isFilter = !isFilter" style="float: right;"></el-button>
             <el-form ref="form" :model="form" label-position="top">
               <el-form-item label="Filter">
-                <el-input placeholder="Please input" v-model="input"></el-input>
+                <el-select v-model="value2a" placeholder="Account Size">
+                  <el-option label="Account Size" value="AccountSize1"></el-option>
+                  <el-option label="Account Size" value="AccountSize2"></el-option>
+                  <el-option label="Account Size" value="AccountSize3"></el-option>
+                </el-select>
+                <el-select v-model="value2b" placeholder="equal to">
+                  <el-option label="equal to" value="equalto1"></el-option>
+                  <el-option label="equal to" value="equalto2"></el-option>
+                  <el-option label="equal to" value="equalto3"></el-option>
+                </el-select>
+                <el-select v-model="value2c" placeholder="Corporate">
+                  <el-option label="Corporate" value="Corporate1"></el-option>
+                  <el-option label="Corporate" value="Corporate2"></el-option>
+                  <el-option label="Corporate" value="Corporate3"></el-option>
+                </el-select>
               </el-form-item>
             </el-form>
             <el-button type="text" icon="el-icon-plus">And</el-button>
@@ -215,7 +233,7 @@
       <div class="divider"></div>
       <div class="footer">
         <el-row :gutter="16">
-          <el-col :xs="24" :sm="16" :md="16" :lg="16" :xl="16">
+          <el-col :span="20">
             <el-button v-show="isSegment" v-on:click="isSegment = !isSegment" type="default" icon="el-icon-plus">Segment</el-button>
             <el-button v-show="!isSegment" v-on:click="isSegment = !isSegment" type="default" icon="el-icon-plus" disabled>Segment</el-button>
             <el-button v-show="isFilter" v-on:click="isFilter = !isFilter" type="default" icon="el-icon-plus">Filter</el-button>
@@ -224,7 +242,7 @@
             <el-button v-show="!isGroupBy" v-on:click="isGroupBy = !isGroupBy" type="default" icon="el-icon-plus" disabled>Group By</el-button>
             &nbsp;
           </el-col>
-          <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
+          <el-col :span="4">
             <el-button type="primary" icon="el-icon-video-play" style="float: right;">Run</el-button>
           </el-col>
         </el-row>
@@ -262,7 +280,7 @@
         </el-card>
       </el-col>
     </el-row>
-  </body>
+  </app>
   <script>
   ELEMENT.locale(ELEMENT.lang.en)
   var Main = {
@@ -340,10 +358,13 @@
         value2: '',
         //dropdowns
         value1: 'PageViews',
-        value3: [],
-        value6: 'Total',
-        value4: [],
+        value2a: [], //filter
+        value2b: [], //filter
+        value2c: [], //filter
+        value3: [], //segment
+        value4: [], //groupby
         value5: 'Acme1',
+        value6: 'Total',
         //table
         tableData: [{
           DataSource: 'Some Clicks on Create Dashboard',
@@ -584,4 +605,5 @@
     }]
   });
   </script>
-  </html>
+</body>
+</html>

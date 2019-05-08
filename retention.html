@@ -15,7 +15,7 @@
   <div id="app">
     <!-- breadcrumb -->
     <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{ path: 'index.html' }">Page 1</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{ path: '/' }">Page 1</el-breadcrumb-item>
       <el-breadcrumb-item>Page 2</el-breadcrumb-item>
     </el-breadcrumb>
     <!-- row -->
@@ -26,93 +26,93 @@
       </el-col>
     </el-col>
   </el-row>
-      <!-- row -->
-      <el-row :gutter="16">
-        <!-- col segment -->
-        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
-          <el-form ref="form" :model="form">
-            <el-form-item label="Segment">
-              <el-select v-model="value3" placeholder="Choose Segment">
-                <el-option label="Segment 1" value="Segment1"></el-option>
-                <el-option label="Segment 2" value="Segment2"></el-option>
-                <el-option label="Segment 3" value="Segment3"></el-option>
-                <el-option label="Segment 4" value="Segment4"></el-option>
-                <el-option label="Segment 5" value="Segment5"></el-option>
-                <el-option label="Segment 6" value="Segment6"></el-option>
-                <el-option label="Segment 7" value="Segment7"></el-option>
-                <el-option label="Segment 8" value="Segment8"></el-option>
-                <el-option label="Segment 9" value="Segment9"></el-option>
-              </el-select>
-            </el-form-item>
-          </el-form>
-        </el-col>
-        <!-- col date -->
-        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
-          <el-form ref="form" :model="form">
-            <el-form-item label="Date Range">
-              <el-date-picker v-model="value2" type="daterange" unlink-panels range-separator="To" start-placeholder="Start date" end-placeholder="End date" :picker-options="pickerOptions"></el-date-picker>
-            </el-form-item>
-          </el-form>
-        </el-col>
-        <!-- col applications -->
-        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
-          <el-form ref="form" :model="form">
-            <el-form-item label="Application">
-              <el-select v-model="value4" placeholder="Choose Application">
-                <el-option label="All Applications" value="AllApplications"></el-option>
-                <el-option label="Web Applications" value="WebApplications"></el-option>
-                <el-option label="Mobile Applications" value="MobileApplications"></el-option>
-                <el-divider></el-divider>
-                <el-option label="Application 1" value="Application1"></el-option>
-                <el-option label="Application 2" value="Application2"></el-option>
-                <el-option label="Application 3" value="Application3"></el-option>
-                <el-option label="Application 4" value="Application4"></el-option>
-                <el-option label="Application 5" value="Application5"></el-option>
-                <el-option label="Application 6" value="Application6"></el-option>
-              </el-select>
-            </el-form-item>
-          </el-form>
-        </el-col>
-      </el-row>
-      <div class="clearfix"></div>
-      <!-- row -->
-      <el-row :gutter="16">
-        <el-col :span="24">
-          <el-card class="box-card">
-            <div slot="header">
-              <el-dropdown trigger="click" placement="bottom-start" style="font-size: 1.3em; padding: 3px 10px 3px 0;">
-                <span class="el-dropdown-link">
-                  Visitors<i class="el-icon-arrow-down el-icon--right"></i>
-                </span>
-                <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item>Accounts</el-dropdown-item>
-                  <el-dropdown-item>Visitors</el-dropdown-item>
-                </el-dropdown-menu>
-              </el-dropdown>
-              <el-dropdown trigger="click" placement="bottom-start" style="font-size: 1.3em; padding: 3px 0;">
-                <span class="el-dropdown-link">
-                  Month<i class="el-icon-arrow-down el-icon--right"></i>
-                </span>
-                <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item>Week</el-dropdown-item>
-                  <el-dropdown-item>Month</el-dropdown-item>
-                </el-dropdown-menu>
-              </el-dropdown>
-            </div>
-            <el-table border :data="tableData">
-              <el-table-column prop="Cohort" label="Cohort"></el-table-column>
-              <el-table-column prop="Week0" label="Week 0"></el-table-column>
-              <el-table-column prop="Week1" label="Week 1"></el-table-column>
-              <el-table-column prop="Week2" label="Week 2"></el-table-column>
-              <el-table-column prop="Week3" label="Week 3"></el-table-column>
-              <el-table-column prop="Week4" label="Week 4"></el-table-column>
-              <el-table-column prop="Week5" label="Week 5"></el-table-column>
-              <el-table-column prop="Week6" label="Week 6"></el-table-column>
-            </el-table>
-          </el-card>
-        </el-col>
-      </el-row>
-</body>
+  <!-- row -->
+  <el-row :gutter="16">
+    <!-- col segment -->
+    <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+      <el-form ref="form" :model="form">
+        <el-form-item label="Segment">
+          <el-select v-model="value3" placeholder="Choose Segment">
+            <el-option label="Segment 1" value="Segment1"></el-option>
+            <el-option label="Segment 2" value="Segment2"></el-option>
+            <el-option label="Segment 3" value="Segment3"></el-option>
+            <el-option label="Segment 4" value="Segment4"></el-option>
+            <el-option label="Segment 5" value="Segment5"></el-option>
+            <el-option label="Segment 6" value="Segment6"></el-option>
+            <el-option label="Segment 7" value="Segment7"></el-option>
+            <el-option label="Segment 8" value="Segment8"></el-option>
+            <el-option label="Segment 9" value="Segment9"></el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
+    </el-col>
+    <!-- col date -->
+    <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+      <el-form ref="form" :model="form">
+        <el-form-item label="Date Range">
+          <el-date-picker v-model="value2" type="daterange" unlink-panels range-separator="To" start-placeholder="Start date" end-placeholder="End date" :picker-options="pickerOptions"></el-date-picker>
+        </el-form-item>
+      </el-form>
+    </el-col>
+    <!-- col applications -->
+    <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+      <el-form ref="form" :model="form">
+        <el-form-item label="Application">
+          <el-select v-model="value4" placeholder="Choose Application">
+            <el-option label="All Applications" value="AllApplications"></el-option>
+            <el-option label="Web Applications" value="WebApplications"></el-option>
+            <el-option label="Mobile Applications" value="MobileApplications"></el-option>
+            <el-divider></el-divider>
+            <el-option label="Application 1" value="Application1"></el-option>
+            <el-option label="Application 2" value="Application2"></el-option>
+            <el-option label="Application 3" value="Application3"></el-option>
+            <el-option label="Application 4" value="Application4"></el-option>
+            <el-option label="Application 5" value="Application5"></el-option>
+            <el-option label="Application 6" value="Application6"></el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
+    </el-col>
+  </el-row>
+  <div class="clearfix"></div>
+  <!-- row -->
+  <el-row :gutter="16">
+    <el-col :span="24">
+      <el-card class="box-card">
+        <div slot="header">
+          <el-dropdown trigger="click" placement="bottom-start" style="font-size: 1.3em; padding: 3px 10px 3px 0;">
+            <span class="el-dropdown-link">
+              Visitors<i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>Accounts</el-dropdown-item>
+              <el-dropdown-item>Visitors</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+          <el-dropdown trigger="click" placement="bottom-start" style="font-size: 1.3em; padding: 3px 0;">
+            <span class="el-dropdown-link">
+              Month<i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>Week</el-dropdown-item>
+              <el-dropdown-item>Month</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
+        <el-table border :data="tableData">
+          <el-table-column prop="Cohort" label="Cohort"></el-table-column>
+          <el-table-column prop="Week0" label="Week 0"></el-table-column>
+          <el-table-column prop="Week1" label="Week 1"></el-table-column>
+          <el-table-column prop="Week2" label="Week 2"></el-table-column>
+          <el-table-column prop="Week3" label="Week 3"></el-table-column>
+          <el-table-column prop="Week4" label="Week 4"></el-table-column>
+          <el-table-column prop="Week5" label="Week 5"></el-table-column>
+          <el-table-column prop="Week6" label="Week 6"></el-table-column>
+        </el-table>
+      </el-card>
+    </el-col>
+  </el-row>
+</app>
 <script>
 ELEMENT.locale(ELEMENT.lang.en)
 var Main = {
@@ -224,4 +224,5 @@ var Main = {
 var Ctor = Vue.extend(Main)
 new Ctor().$mount('#app');
 </script>
+</body>
 </html>

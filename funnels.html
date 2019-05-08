@@ -29,47 +29,47 @@
         <el-button type="primary" style="float: right;">Create Funnel</el-button>
       </el-col>
     </el-row>
-        <!-- row -->
-        <el-row :gutter="16">
-          <!-- col applications -->
-          <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
-            <el-form ref="form" :model="form">
-              <el-form-item label="Application">
-                <el-select v-model="value4" placeholder="Choose Application">
-                  <el-option label="All Applications" value="AllApplications"></el-option>
-                  <el-option label="Web Applications" value="WebApplications"></el-option>
-                  <el-option label="Mobile Applications" value="MobileApplications"></el-option>
-                  <el-divider></el-divider>
-                  <el-option label="Application 1" value="Application1"></el-option>
-                  <el-option label="Application 2" value="Application2"></el-option>
-                  <el-option label="Application 3" value="Application3"></el-option>
-                  <el-option label="Application 4" value="Application4"></el-option>
-                  <el-option label="Application 5" value="Application5"></el-option>
-                  <el-option label="Application 6" value="Application6"></el-option>
-                </el-select>
-              </el-form-item>
-            </el-form>
-          </el-col>
-        </el-row>
-        <!-- row -->
-        <el-row :gutter="16">
-          <el-col :span="24">
-            <el-card class="box-card">
-              <el-table :data="tableData" style="width: 100%" height="80vh">
-                <el-table-column fixed sortable label="Funnel">
-                  <div slot-scope="{row}">
-                    <button type="button" class="el-button el-button--text">{{row.Funnel}}</button>
-                  </div>
-                </el-table-column>
-                <el-table-column sortable prop="DateRange" label="Date Range"></el-table-column>
-                <el-table-column sortable prop="Steps" label="Steps"></el-table-column>
-                <el-table-column sortable prop="Visibility" label="Visibility"></el-table-column>
-                <el-table-column sortable prop="Application" label="Application"></el-table-column>
-              </el-table>
-            </el-card>
-          </el-col>
-        </el-row>
-  </body>
+    <!-- row -->
+    <el-row :gutter="16">
+      <!-- col applications -->
+      <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+        <el-form ref="form" :model="form">
+          <el-form-item label="Application">
+            <el-select v-model="value4" placeholder="Choose Application">
+              <el-option label="All Applications" value="AllApplications"></el-option>
+              <el-option label="Web Applications" value="WebApplications"></el-option>
+              <el-option label="Mobile Applications" value="MobileApplications"></el-option>
+              <el-divider></el-divider>
+              <el-option label="Application 1" value="Application1"></el-option>
+              <el-option label="Application 2" value="Application2"></el-option>
+              <el-option label="Application 3" value="Application3"></el-option>
+              <el-option label="Application 4" value="Application4"></el-option>
+              <el-option label="Application 5" value="Application5"></el-option>
+              <el-option label="Application 6" value="Application6"></el-option>
+            </el-select>
+          </el-form-item>
+        </el-form>
+      </el-col>
+    </el-row>
+    <!-- row -->
+    <el-row :gutter="16">
+      <el-col :span="24">
+        <el-card class="box-card">
+          <el-table :data="tableData" style="width: 100%" height="80vh">
+            <el-table-column fixed sortable label="Funnel">
+              <div slot-scope="{row}">
+                <button type="button" class="el-button el-button--text">{{row.Funnel}}</button>
+              </div>
+            </el-table-column>
+            <el-table-column sortable prop="DateRange" label="Date Range"></el-table-column>
+            <el-table-column sortable prop="Steps" label="Steps"></el-table-column>
+            <el-table-column sortable prop="Visibility" label="Visibility"></el-table-column>
+            <el-table-column sortable prop="Application" label="Application"></el-table-column>
+          </el-table>
+        </el-card>
+      </el-col>
+    </el-row>
+  </app>
   <script>
   ELEMENT.locale(ELEMENT.lang.en)
   var Main = {
@@ -215,4 +215,5 @@
   var Ctor = Vue.extend(Main)
   new Ctor().$mount('#app');
 </script>
+</body>
 </html>

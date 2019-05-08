@@ -15,7 +15,7 @@
   <div id="app">
     <!-- breadcrumb -->
     <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{ path: 'index.html' }">Page 1</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{ path: '/' }">Page 1</el-breadcrumb-item>
       <el-breadcrumb-item>Page 2</el-breadcrumb-item>
     </el-breadcrumb>
     <!-- row -->
@@ -159,7 +159,7 @@
       </el-tab-pane>
       <el-tab-pane label="Untagged" name="second">Untagged</el-tab-pane>
     </el-tabs>
-  </body>
+  </app>
   <script>
   ELEMENT.locale(ELEMENT.lang.en)
   var Main = {
@@ -378,4 +378,5 @@
   var Ctor = Vue.extend(Main)
   new Ctor().$mount('#app');
 </script>
+</body>
 </html>
